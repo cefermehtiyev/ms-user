@@ -1,0 +1,28 @@
+
+services:
+  postgres:
+    container_name: postgres_user
+    image: "postgres:latest"
+    environment:
+      POSTGRES_DB: users_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: j@vacefer2005
+    ports:
+      - "2002:5432"
+    volumes:
+      - users-db:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer_user
+    image: adminer:latest
+    ports:
+      - '6294:8080'
+
+
+
+volumes:
+  users-db:
+
+#networks:
+#  default:
+#    name: user_network
